@@ -64,6 +64,7 @@ in {
     };
     envExtra = ''
       export PATH="/opt/homebrew/bin:$PATH"
+      export EDITOR="nvim"
     '';
     plugins = [
       rec {
@@ -145,6 +146,8 @@ in {
     git_protocol = "ssh";
     prompt = "enabled";
   };
+  programs.gh.settings.editor = "nvim";
+
   programs.ssh.enable = true;
 
   programs.git.enable = true;
@@ -169,5 +172,8 @@ in {
     "node_modules"
   ];
   programs.git.userEmail = "42704376+pmlogist@users.noreply.github.com";
-  programs.git.userName = "pmlogist";
+
+  home.sessionVariables = {
+    EDITOR = "nvim";
+  };
 }
